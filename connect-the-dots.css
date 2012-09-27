@@ -1,0 +1,76 @@
+body {font-family:Geneva, sans-serif;font-size:10px;}
+#main {margin:50px;}
+#canvas {width:695px;height:532px;border:1px solid #ccc;position:relative;}
+.point {position:absolute;height:1px;width:1px;background-color:#c00;}
+.dot_container {position:absolute;padding:1px;padding:1px;}
+
+.dot {position:relative;height:8px;width:8px;background-color:#000;border-radius:4px;float:left;margin:12px -3px 0 0 ;}
+.dot_number {position:relative;float:left;}
+
+
+#line1, #line1-transformed {
+	width:1px;
+	height:1px;
+	position:absolute;
+	top:300px;
+	left:350px;
+	background-color:#000;
+	}
+
+
+#line1-transformed {
+	transform: rotate(280deg);
+	transform-origin:0px 0px;
+	-ms-transform: rotate(280deg);
+	-ms-transform-origin:0px 0px;
+	-moz-transform: rotate(280deg);
+	-moz-transform-origin:0px 0px;
+	-webkit-transform: rotate(280deg);
+	-webkit-transform-origin:0px 0px;
+	-o-transform: rotate(280deg);
+	-o-transform-origin:0px 0px;
+	}
+
+
+/* active dot */
+.active .dot {
+animation: dotBackgroundColor .7s linear infinite alternate;
+-moz-animation: dotBackgroundColor .7s linear infinite alternate;
+-webkit-animation: dotBackgroundColor .7s linear infinite alternate;
+-o-animation: dotBackgroundColor .7s linear infinite alternate;
+background-color:#f00;
+}
+.active .dot_number {
+animation: numberColor .7s linear infinite alternate;
+-moz-animation: numberColor .7s linear infinite alternate;
+-webkit-animation: numberColor .7s linear infinite alternate;
+-o-animation: numberColor .7s linear infinite alternate;
+color:#f00;
+}
+
+@keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+@-moz-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+@-webkit-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+@-o-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+
+@keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+@-moz-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+@-webkit-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+@-o-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+
+.active:hover .dot {
+	background-color:#f00;
+	animation:none;
+	-moz-animation:none;
+	-webkit-animation:none;
+	-o-animation:none;
+}
+.active:hover .dot_number {
+	color:#f00;
+	animation:none;
+	-moz-animation:none;
+	-webkit-animation:none;
+	-o-animation:none;
+}
+.active:hover {cursor:pointer;}
+
