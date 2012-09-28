@@ -19,15 +19,15 @@ body {font-family:Geneva, sans-serif;font-size:10px;}
 
 
 #line1-transformed {
-	transform: rotate(280deg);
+	transform: rotate(350deg);
 	transform-origin:0px 0px;
-	-ms-transform: rotate(280deg);
+	-ms-transform: rotate(350deg);
 	-ms-transform-origin:0px 0px;
-	-moz-transform: rotate(280deg);
+	-moz-transform: rotate(350deg);
 	-moz-transform-origin:0px 0px;
-	-webkit-transform: rotate(280deg);
+	-webkit-transform: rotate(350deg);
 	-webkit-transform-origin:0px 0px;
-	-o-transform: rotate(280deg);
+	-o-transform: rotate(350deg);
 	-o-transform-origin:0px 0px;
 	}
 
