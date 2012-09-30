@@ -54,13 +54,20 @@ $(document).ready(function() {
 			x2 = coords[i][0];
 			y2 = coords[i][1];
 			
-			x1 = (x1 == x2) ? x1+.01 : x1; //to avoid cases where slope == infinity - which would break the calculations below
-			
+			//x1 = (x1 == x2) ? x1+.001 : x1; //to avoid cases where slope == infinity - which would break the calculations below
+
 			var m = (y2-y1)/(x2-x1); //slope of the segment
 			var d = Math.sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1))); //length of the segment
 			var angle = (Math.atan(m))*180/(Math.PI);
-			
-			alert('m:'+m+', angle:'+angle);
+            var transform;
+
+            if (x2 >= x1){
+                transform = (360 + Math.atan((y2-y1)/(x2-x1))*180/(Math.PI)) % 360;
+            } else {
+                transform = 180 + Math.atan((y2-y1)/(x2-x1))*180/(Math.PI);
+            }
+
+			alert('m:'+m+', angle:'+angle+', transform:'+transform);
 			
 			//if it's the last dot, reveal the image
 			if (i == coords.length-1){
@@ -79,7 +86,7 @@ $(document).ready(function() {
 //	}, 600, "linear");
 
 var revealImage = function(){
-	alert('cd');
+	//alert('cd');
 }
 
 	
