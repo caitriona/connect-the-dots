@@ -39,7 +39,7 @@ $(document).ready(function() {
 			//take active class off current dot
 			$(this).removeClass('active');
 			
-			//if it's the first dot, exit
+			//if it's the first dot, no line to draw, just make the next dot active
 			if (i== 0){
 				$('div#dot_container_'+(i+1)).addClass('active'); //make next dot active
 				return false;
@@ -51,21 +51,16 @@ $(document).ready(function() {
 			x2 = coords[i][0];
 			y2 = coords[i][1];
 			
-			//x1 = (x1 == x2) ? x1+.001 : x1; //to avoid cases where slope == infinity - which would break the calculations below
-
 			var m = (y2-y1)/(x2-x1); //slope of the segment
-			var d = Math.sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1))); //length of the segment
 			var angle = (Math.atan(m))*180/(Math.PI);
+			var d = Math.sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1))); //length of the segment
             var transform;
 
             if (x2 >= x1){
-                transform = (360 + Math.atan((y2-y1)/(x2-x1))*180/(Math.PI)) % 360;
+                transform = (360 + angle) % 360;
             } else {
-                transform = 180 + Math.atan((y2-y1)/(x2-x1))*180/(Math.PI);
+                transform = 180 + angle;
             }
-
-			//alert('m:'+m+', angle:'+angle+', transform:'+transform);
-
 
 			var id ='line_'+new Date().getTime()
 			var line = "<div id='"+id+"'class='line'>&nbsp;</div>";
@@ -88,23 +83,13 @@ $(document).ready(function() {
 				'-o-transform-origin' : '0px 0px'
 			});
 
-//			$('#'+id).css({
-//				'left': x1,
-//				'top': y1,
-//				'width': '100px'
-//			});
-
-			
 			$('#'+id).animate({
 				width: d,
-			}, 600, "linear", function(){
-					
-					//make the next dot active
-					if (i < coords.length)
-						$('div#dot_container_'+(i+1)).addClass('active');
-			
-				});
-
+				}, 400, "linear", function(){
+						//make the next dot active
+						if (i < coords.length)
+							$('div#dot_container_'+(i+1)).addClass('active');
+					});
 
 			
 			//if it's the last dot, reveal the image
@@ -114,17 +99,10 @@ $(document).ready(function() {
 			
 		}
 		
-		//add active class to next dot	
 	});
-	
-
-
-//	$('#line1-transformed').animate({
-//		width: '200px'
-//	}, 600, "linear");
 
 var revealImage = function(){
-	//alert('cd');
+	//do stuff
 }
 
 	
