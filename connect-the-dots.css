@@ -1,6 +1,6 @@
 body {font-family:Geneva, sans-serif;font-size:10px;}
 #main {margin:50px;}
-#canvas {width:695px;height:532px;border:1px solid #ccc;position:relative;}
+#canvas {width:635px;height:841px;border:1px solid #ccc;position:relative;}
 .point {position:absolute;height:1px;width:1px;background-color:#c00;}
 .dot_container {position:absolute;padding:1px;padding:1px;}
 
@@ -12,6 +12,9 @@ body {font-family:Geneva, sans-serif;font-size:10px;}
 	position:absolute;
 	background-color:#000;
 }
+
+#img_left{display:none;position:absolute;width:635px;height:841px;background:url(images/scissors_left.png) no-repeat 28px 10px;}
+#img_right{display:none;position:absolute;width:635px;height:841px;background:url(images/scissors_right.png) no-repeat 184px 28px;}
 
 /* active dot */
 .active .dot {
