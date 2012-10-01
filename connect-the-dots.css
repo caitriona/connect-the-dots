@@ -7,27 +7,11 @@ body {font-family:Geneva, sans-serif;font-size:10px;}
 .dot {position:relative;height:8px;width:8px;background-color:#000;border-radius:4px;float:left;margin:12px -3px 0 0 ;}
 .dot_number {position:relative;float:left;}
 
-
-.line, #line1, #line1-transformed {
+.line {
 	height:1px;
 	position:absolute;
 	background-color:#000;
-	}
-
-
-#line1-transformed {
-	transform: rotate(350deg);
-	transform-origin:0px 0px;
-	-ms-transform: rotate(350deg);
-	-ms-transform-origin:0px 0px;
-	-moz-transform: rotate(350deg);
-	-moz-transform-origin:0px 0px;
-	-webkit-transform: rotate(350deg);
-	-webkit-transform-origin:0px 0px;
-	-o-transform: rotate(350deg);
-	-o-transform-origin:0px 0px;
-	}
-
+}
 
 /* active dot */
 .active .dot {
@@ -45,6 +29,7 @@ animation: numberColor .7s linear infinite alternate;
 color:#f00;
 }
 
+/* active dot pulse */
 @keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
 @-moz-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
 @-webkit-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
