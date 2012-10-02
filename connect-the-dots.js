@@ -5,6 +5,9 @@
 */
 $(document).ready(function() {
 
+	revealImage();
+	return false;
+
 	var coords = [
 		[192,27]
 		,[183,55]
@@ -117,8 +120,42 @@ $(document).ready(function() {
 	});
 
 var revealImage = function(){
-	//do stuff
-}
+
+	//fade out all the dots
+	$('.dot_container').animate({
+		opacity: 0
+	}, 1000, "linear" );
+
+	//fade in the image
+	$('.hidden_image').animate({
+		opacity: .2
+	}, 1000, "linear" );
+
+	animateImage();
+
+};
+
+var animateImage = function(){
+
+	var transform = 20,
+	x1_origin = 342,
+	y1_origin = 382;
+	
+	$('#img_left').css({
+		'transform' : 'rotate('+transform+'deg)',
+		'transform-origin' : x1_origin+'px '+y1_origin+'px',
+		'-ms-transform' : 'rotate('+transform+'deg)',
+		'-ms-transform-origin' : x1_origin+'px '+y1_origin+'px',
+		'-moz-transform' : 'rotate('+transform+'deg)',
+		'-moz-transform-origin' : x1_origin+'px '+y1_origin+'px',
+		'-webkit-transform' : 'rotate('+transform+'deg)',
+		'-webkit-transform-origin' : x1_origin+'px '+y1_origin+'px',
+		'-o-transform' : 'rotate('+transform+'deg)',
+		'-o-transform-origin' : x1_origin+'px '+y1_origin+'px'
+	});
+
+
+};
 
 	
 });

@@ -13,8 +13,9 @@ body {font-family:Geneva, sans-serif;font-size:10px;}
 	background-color:#000;
 }
 
-#img_left{display:none;position:absolute;width:635px;height:841px;background:url(images/scissors_left.png) no-repeat 28px 10px;}
-#img_right{display:none;position:absolute;width:635px;height:841px;background:url(images/scissors_right.png) no-repeat 184px 28px;}
+.hidden_image {opacity:.2;position:absolute;width:635px;height:841px;}
+#img_left{background:url(images/scissors_left.png) no-repeat 28px 10px;}
+#img_right{background:url(images/scissors_right.png) no-repeat 184px 28px;}
 
 /* active dot */
 .active .dot {
@@ -58,4 +59,36 @@ color:#f00;
 	-o-animation:none;
 }
 .active:hover {cursor:pointer;}
+
+/* animate image rotate */
+#img_left.animate {
+	-moz-transform-origin:342px 382px;
+
+	animation: imgRotateLeft .7s linear infinite alternate;
+	-moz-animation: imgRotateLeft .7s linear infinite alternate;
+	-webkit-animation: imgRotateLeft .7s linear infinite alternate;
+	-o-animation: imgRotateLeft .7s linear infinite alternate;
+}
+
+@keyframes			imgRotateLeft{ from{transform:rotate(0deg);}to{transform:rotate(-15deg);}}
+@-moz-keyframes		imgRotateLeft{ from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(-15deg);}}
+@-webkit-keyframes	imgRotateLeft{ from{-webkit-transform:rotate(0deg);}to{-webkit-transform:rotate(-15deg);}}
+@-o-keyframes		imgRotateLeft{ from{-o-transform:rotate(0deg);}to{-o-transform:rotate(-15deg);}}
+
+
+#img_right.animate {
+	-moz-transform-origin:342px 382px;
+
+	animation: imgRotateRight .7s linear infinite alternate;
+	-moz-animation: imgRotateRight .7s linear infinite alternate;
+	-webkit-animation: imgRotateRight .7s linear infinite alternate;
+	-o-animation: imgRotateRight .7s linear infinite alternate;
+}
+
+@keyframes			imgRotateRight{ from{transform:rotate(0deg);}to{transform:rotate(15deg);}}
+@-moz-keyframes		imgRotateRight{ from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(15deg);}}
+@-webkit-keyframes	imgRotateRight{ from{-webkit-transform:rotate(0deg);}to{-webkit-transform:rotate(15deg);}}
+@-o-keyframes		imgRotateRight{ from{-o-transform:rotate(0deg);}to{-o-transform:rotate(15deg);}}
+
+
 
