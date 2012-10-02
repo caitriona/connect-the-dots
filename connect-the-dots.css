@@ -19,44 +19,44 @@ body {font-family:Geneva, sans-serif;font-size:10px;}
 
 /* active dot */
 .active .dot {
-animation: dotBackgroundColor .7s linear infinite alternate;
--moz-animation: dotBackgroundColor .7s linear infinite alternate;
 -webkit-animation: dotBackgroundColor .7s linear infinite alternate;
+-moz-animation: dotBackgroundColor .7s linear infinite alternate;
 -o-animation: dotBackgroundColor .7s linear infinite alternate;
+animation: dotBackgroundColor .7s linear infinite alternate;
 background-color:#f00;
 }
 .active .dot_number {
-animation: numberColor .7s linear infinite alternate;
--moz-animation: numberColor .7s linear infinite alternate;
 -webkit-animation: numberColor .7s linear infinite alternate;
+-moz-animation: numberColor .7s linear infinite alternate;
 -o-animation: numberColor .7s linear infinite alternate;
+animation: numberColor .7s linear infinite alternate;
 color:#f00;
 }
 
 /* active dot pulse */
-@keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
-@-moz-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
 @-webkit-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+@-moz-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
 @-o-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+@keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
 
-@keyframes numberColor{ from{color:#f00;}to{color:#000;}}
-@-moz-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
 @-webkit-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+@-moz-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
 @-o-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+@keyframes numberColor{ from{color:#f00;}to{color:#000;}}
 
 .active:hover .dot {
 	background-color:#f00;
-	animation:none;
 	-moz-animation:none;
 	-webkit-animation:none;
 	-o-animation:none;
+	animation:none;
 }
 .active:hover .dot_number {
 	color:#f00;
-	animation:none;
 	-moz-animation:none;
 	-webkit-animation:none;
 	-o-animation:none;
+	animation:none;
 }
 .active:hover {cursor:pointer;}
 
@@ -64,31 +64,31 @@ color:#f00;
 #img_left.animate {
 	-moz-transform-origin:342px 382px;
 
-	animation: imgRotateLeft .7s linear infinite alternate;
 	-moz-animation: imgRotateLeft .7s linear infinite alternate;
 	-webkit-animation: imgRotateLeft .7s linear infinite alternate;
 	-o-animation: imgRotateLeft .7s linear infinite alternate;
+	animation: imgRotateLeft .7s linear infinite alternate;
 }
 
-@keyframes			imgRotateLeft{ from{transform:rotate(0deg);}to{transform:rotate(-15deg);}}
-@-moz-keyframes		imgRotateLeft{ from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(-15deg);}}
 @-webkit-keyframes	imgRotateLeft{ from{-webkit-transform:rotate(0deg);}to{-webkit-transform:rotate(-15deg);}}
+@-moz-keyframes		imgRotateLeft{ from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(-15deg);}}
 @-o-keyframes		imgRotateLeft{ from{-o-transform:rotate(0deg);}to{-o-transform:rotate(-15deg);}}
+@keyframes			imgRotateLeft{ from{transform:rotate(0deg);}to{transform:rotate(-15deg);}}
 
 
 #img_right.animate {
 	-moz-transform-origin:342px 382px;
 
-	animation: imgRotateRight .7s linear infinite alternate;
-	-moz-animation: imgRotateRight .7s linear infinite alternate;
 	-webkit-animation: imgRotateRight .7s linear infinite alternate;
+	-moz-animation: imgRotateRight .7s linear infinite alternate;
 	-o-animation: imgRotateRight .7s linear infinite alternate;
+	animation: imgRotateRight .7s linear infinite alternate;
 }
 
-@keyframes			imgRotateRight{ from{transform:rotate(0deg);}to{transform:rotate(15deg);}}
-@-moz-keyframes		imgRotateRight{ from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(15deg);}}
 @-webkit-keyframes	imgRotateRight{ from{-webkit-transform:rotate(0deg);}to{-webkit-transform:rotate(15deg);}}
+@-moz-keyframes		imgRotateRight{ from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(15deg);}}
 @-o-keyframes		imgRotateRight{ from{-o-transform:rotate(0deg);}to{-o-transform:rotate(15deg);}}
+@keyframes			imgRotateRight{ from{transform:rotate(0deg);}to{transform:rotate(15deg);}}
 
 
 
