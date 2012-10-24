@@ -5,9 +5,7 @@
 */
 $(document).ready(function() {
 
-//	revealImage();
-//	return false;
-
+	//coordinates of the 'dots'
 	var coords = [
 		[192,27]
 		,[183,55]
@@ -35,6 +33,7 @@ $(document).ready(function() {
 		,[199,40]
 		];
 
+	//draw all the dots
 	for(i=0;i<coords.length;i++) {
 
 		css = {
@@ -43,29 +42,30 @@ $(document).ready(function() {
 			zIndex: coords.length-i //to ensure lower numbers are on top of higher ones in case of ovarlap
 		}
 		
+		//set the first dot active
 		class_active = (i == 0) ? ' active' : '';
+		
+		// html/css for the dot
 		div = $('<div id="dot_container_'+i+'" order_value="'+i+'" class="dot_container'+class_active+'"><div class="dot"></div><div class="dot_number">'+(i+1)+'</div></div>').css(css);
+		
+		//add the dot to the page
 		$('#canvas').append(div);
 	}
 	
+	
+	// when a dot is clicked, join it with a line to the previous dot
 	$('.dot_container').click(function(){
 		
-		if ($(this).hasClass('active')) {
+		if ($(this).hasClass('active')) { //check if active class has been added to the dot (note: can't move this into the .click event handler as it won't work there)
 		
-			i = parseInt($(this).attr('order_value'));
+			var i = parseInt($(this).attr('order_value')); //it's order in the dot series
 			
 			//take active class off current dot
 			$(this).removeClass('active');
 			
 			//if it's the first dot, no line to draw, just make the next dot active
-			if (i== 0){
+			if (i == 0){
 				$('div#dot_container_'+(i+1)).addClass('active'); //make next dot active
-				return false;
-			}
-
-			//test
-			if (i == 2){
-				revealImage();
 				return false;
 			}
 
@@ -76,21 +76,23 @@ $(document).ready(function() {
 			y2 = coords[i][1];
 			
 			var m = (y2-y1)/(x2-x1); //slope of the segment
-			var angle = (Math.atan(m))*180/(Math.PI);
+			var angle = (Math.atan(m))*180/(Math.PI); //angle of the line
 			var d = Math.sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1))); //length of the segment
-            var transform;
+			var transform;
 
-            if (x2 >= x1){
-                transform = (360 + angle) % 360;
-            } else {
-                transform = 180 + angle;
-            }
+			// the (css) transform angle depends on the direction of movement of the line
+			if (x2 >= x1){
+					transform = (360 + angle) % 360;
+			} else {
+					transform = 180 + angle;
+			}
 
-			var id ='line_'+new Date().getTime()
+			// add the (currently invisible) line to the page
+			var id ='line_'+new Date().getTime();
 			var line = "<div id='"+id+"'class='line'>&nbsp;</div>";
-			
 			$('#canvas').append(line);
 			
+			//rotate the line
 			$('#'+id).css({
 				'left': x1,
 				'top': y1,
@@ -107,10 +109,11 @@ $(document).ready(function() {
 				'-o-transform-origin' : '0px 0px'
 			});
 
+			// 'draw' the line
 			$('#'+id).animate({
 				width: d,
 				}, 400, "linear", function(){
-						//make the next dot active
+						//make the next dot active after the line is drawn
 						if (i < coords.length)
 							$('div#dot_container_'+(i+1)).addClass('active');
 					});
@@ -125,22 +128,23 @@ $(document).ready(function() {
 		
 	});
 
+/***
+reveal the image
+***/
 var revealImage = function(){
 
 	//fade out all the dots & lines
-	$('.dot_container').animate({
+	$('.dot_container,.line').animate({
 		opacity: 0
-	}, 1000, "linear" );
+	}, 1000, "linear", function(){
+		
+		//then fade in the image
+		$('.hidden_image').animate({
+			opacity: 1
+		}, 1000, "linear", function(){$('.hidden_image').addClass('animate');} );
+	
+	});
 
-	//fade out all the lines
-	$('.line').animate({
-		opacity: 0
-	}, 1000, "linear" );
-
-	//fade in the image
-	$('.hidden_image').animate({
-		opacity: 1
-	}, 1000, "linear", function(){$('.hidden_image').addClass('animate');} );
 
 
 };
