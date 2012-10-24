@@ -1,0 +1,93 @@
+#main {margin:50px;font-family:Geneva, sans-serif;font-size:10px;}
+#canvas {width:635px;height:841px;border:1px solid #ccc;position:relative;background-color:#fff;}
+.point {position:absolute;height:1px;width:1px;background-color:#c00;}
+.dot_container {position:absolute;padding:1px;padding:1px;}
+
+.dot {position:relative;height:8px;width:8px;background-color:#000;border-radius:4px;float:left;margin:12px -3px 0 0 ;}
+.dot_number {position:relative;float:left;}
+
+.line {
+	height:1px;
+	position:absolute;
+	background-color:#000;
+}
+
+.hidden_image {opacity:0;position:absolute;width:635px;height:841px;}
+#img_left{background:url(../images/scissors_left.png) no-repeat 28px 10px;}
+#img_right{background:url(../images/scissors_right.png) no-repeat 184px 28px;}
+
+/* active dot */
+.active .dot {
+-webkit-animation: dotBackgroundColor .7s linear infinite alternate;
+-moz-animation: dotBackgroundColor .7s linear infinite alternate;
+-o-animation: dotBackgroundColor .7s linear infinite alternate;
+animation: dotBackgroundColor .7s linear infinite alternate;
+background-color:#f00;
+}
+.active .dot_number {
+-webkit-animation: numberColor .7s linear infinite alternate;
+-moz-animation: numberColor .7s linear infinite alternate;
+-o-animation: numberColor .7s linear infinite alternate;
+animation: numberColor .7s linear infinite alternate;
+color:#f00;
+}
+
+/* active dot pulse */
+@-webkit-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+@-moz-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+@-o-keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+@keyframes dotBackgroundColor{ from{background-color:#f00;}to{background-color:#000;}}
+
+@-webkit-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+@-moz-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+@-o-keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+@keyframes numberColor{ from{color:#f00;}to{color:#000;}}
+
+.active:hover .dot {
+	background-color:#f00;
+	-moz-animation:none;
+	-webkit-animation:none;
+	-o-animation:none;
+	animation:none;
+}
+.active:hover .dot_number {
+	color:#f00;
+	-moz-animation:none;
+	-webkit-animation:none;
+	-o-animation:none;
+	animation:none;
+}
+.active:hover {cursor:pointer;}
+
+/* animate image rotate */
+#img_left.animate {
+	-moz-transform-origin:342px 382px;
+
+	-moz-animation: imgRotateLeft .7s linear infinite alternate;
+	-webkit-animation: imgRotateLeft .7s linear infinite alternate;
+	-o-animation: imgRotateLeft .7s linear infinite alternate;
+	animation: imgRotateLeft .7s linear infinite alternate;
+}
+
+@-webkit-keyframes	imgRotateLeft{ from{-webkit-transform:rotate(0deg);}to{-webkit-transform:rotate(-21deg);}}
+@-moz-keyframes		imgRotateLeft{ from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(-21deg);}}
+@-o-keyframes		imgRotateLeft{ from{-o-transform:rotate(0deg);}to{-o-transform:rotate(-21deg);}}
+@keyframes			imgRotateLeft{ from{transform:rotate(0deg);}to{transform:rotate(-21deg);}}
+
+
+#img_right.animate {
+	-moz-transform-origin:342px 382px;
+
+	-webkit-animation: imgRotateRight .7s linear infinite alternate;
+	-moz-animation: imgRotateRight .7s linear infinite alternate;
+	-o-animation: imgRotateRight .7s linear infinite alternate;
+	animation: imgRotateRight .7s linear infinite alternate;
+}
+
+@-webkit-keyframes	imgRotateRight{ from{-webkit-transform:rotate(0deg);}to{-webkit-transform:rotate(21deg);}}
+@-moz-keyframes		imgRotateRight{ from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(21deg);}}
+@-o-keyframes		imgRotateRight{ from{-o-transform:rotate(0deg);}to{-o-transform:rotate(21deg);}}
+@keyframes			imgRotateRight{ from{transform:rotate(0deg);}to{transform:rotate(21deg);}}
+
+
+
