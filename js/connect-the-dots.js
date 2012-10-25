@@ -39,7 +39,7 @@ $(document).ready(function() {
 		css = {
 			left: coords[i][0]-6,
 			top: coords[i][1]-17,
-			zIndex: coords.length-i //to ensure lower numbers are on top of higher ones in case of ovarlap
+			zIndex: coords.length-i //to ensure lower numbers are on top of higher ones in case of overlap
 		}
 		
 		//set the first dot active
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		
 		if ($(this).hasClass('active')) { //check if active class has been added to the dot (note: can't move this into the .click event handler as it won't work there)
 		
-			var i = parseInt($(this).attr('order_value')); //it's order in the dot series
+			var i = parseInt($(this).attr('order_value')); //its order in the dot series
 			
 			//take active class off current dot
 			$(this).removeClass('active');
